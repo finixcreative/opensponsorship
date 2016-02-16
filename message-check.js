@@ -1,8 +1,5 @@
 var user = {
-	isSignedIn: ko.observable(false),
-	message: prompt("Enter your message:", "\"I'm gonna make him an offer he can't refuse.\""),
-	username: prompt("You must be signed in to use this feature. If you have an account, enter your username:", "Don Corleone"),
-	password: prompt("Thank you. Now enter your password:", "godfather123")
+	isSignedIn: false
 };
 
 function userSignIn(){
@@ -10,16 +7,17 @@ function userSignIn(){
 };
 
 function messageCheck(){
-	var chat = function(){
+	function chat(){
 		// return chat popup
-		user.message;
+		user.message = prompt("Enter your message:", "\"I'm gonna make him an offer he can't refuse.\"");
 	};
-	var login = function(){
+	function login(){
 		// return login popup
-		user.username;
-		user.password;
+		user.username = prompt("You must be signed in to use this feature. If you have an account, enter your username:", "Don Corleone");
+		user.password = prompt("Thank you. Now enter your password:", "godfather123");
 		if(user.username !== null && user.password !== null){
 			user.isSignedIn = true;
+			document.getElementById("login").checked = true;
 		} else {
 			user.isSignedIn = false;
 		}
